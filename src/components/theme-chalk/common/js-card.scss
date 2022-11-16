@@ -1,0 +1,12 @@
+@use '@/styles/common/vars' as *;
+@use '../utils/mixins' as *;
+
+@include b(card) {
+  @include e(header) {
+    position: relative;
+  }
+
+  @include e(content) {
+    position: relative;
+  }
+}

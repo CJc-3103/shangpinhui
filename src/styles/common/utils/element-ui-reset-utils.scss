@@ -1,0 +1,7 @@
+@mixin no-padding-menu-item() {
+  .el-menu {
+    >>> .el-menu-item {
+      padding-left: 0;
+    }
+  }
+}

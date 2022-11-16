@@ -1,0 +1,127 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+$rank-tab-font-color: #999;
+$rank-tab-font-color-hover: rgb(79, 76, 212);
+$rank-tab-icon-size: 35px;
+$rank-item-width: 270px;
+$rank-item-img-size: 200px;
+
+@include b(home-main) {
+  @include b(rank) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include b(rank-tab-list) {
+    display: flex;
+    flex-direction: row;
+    height: 78px;
+  }
+
+  @include b(rank-tab-item) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 18px;
+    font-size: $font-size-medium;
+
+    @include e(wrap) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include e(icon) {
+      width: $rank-tab-icon-size;
+      height: $rank-tab-icon-size;
+      display: block;
+
+      @include m(hot) {
+        background: url(@/assets/images/home/hot.png);
+      }
+      @include m(new) {
+        background: url(@/assets/images/home/new.png);
+      }
+      @include m(sale) {
+        background: url(@/assets/images/home/sale.png);
+      }
+    }
+
+    @include e(title) {
+      // color: $tab-color-active-2;
+      line-height: $line-height-extra-large;
+    }
+
+    @include when(active) {
+      .sph-rank-tab-item__icon {
+        background-position: -35px 0;
+      }
+
+      .sph-rank-tab-item__title {
+        color: $tab-color-active-2;
+      }
+    }
+
+    // hover 样式放在后面，避免被 is-active 的样式覆盖
+    // @include pseudo(hover) {
+    //   background-color: transparent;
+    //   // .sph-rank-tab-item__title {
+    //   //   color: $tab-color-active-2;
+    //   // }
+    // }
+  }
+
+  @include b(rank-group) {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  @include b(rank-item) {
+    border: 1px solid $tab-color-active-1;
+    width: $rank-item-width;
+    background: $color-white;
+
+    @include e(img) {
+      width: $rank-item-img-size;
+      height: $rank-item-img-size;
+      text-align: center;
+      margin: 5px auto 28px;
+
+      img {
+        width: $rank-item-img-size;
+        height: $rank-item-img-size;
+      }
+    }
+
+    @include e(info) {
+      background: $background-color-primary;
+      padding: 0 $gap-small;
+
+      @include e(title) {
+        font-size: $font-size-extra-small;
+        height: 50px;
+        line-height: $line-height-extra-large;
+        text-overflow: ellipsis;
+
+        a {
+          color: $font-color-1;
+          text-decoration: none;
+        }
+      }
+
+      @include e(price) {
+        height: 35px;
+        line-height: $line-height-primary;
+        font-size: $font-size-extra-large;
+        color: $tab-color-active-1;
+        margin-top: $gap-small;
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@include b(search-selector) {
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+
+  @include b(selector-group) {
+    margin: 0;
+    position: relative;
+    border-top: 1px solid #ddd;
+    display: flex;
+
+    @include e(header) {
+      width: 115px;
+      background: #f1f1f1;
+      line-height: 26px;
+      text-align: right;
+      padding: $gap-middle $gap-middle 0 0;
+    }
+
+    @include e(content) {
+      padding: $gap-middle 0 0 $gap-large;
+      // padding: $gap-middle) 0 $gap-middle) $gap-large);
+      color: #333;
+      padding-right: 90px;
+    }
+
+    @include e(extra) {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      .btn {
+        display: inline-block;
+        padding: 2px 14px;
+        box-sizing: border-box;
+        margin-bottom: 0;
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        padding: 0 10px;
+        background: #fff;
+        border: 1px solid #d5d5d5;
+      }
+
+      a {
+        color: #666;
+      }
+    }
+  }
+
+  @include b(selector-list) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include b(selector-item) {
+    margin-right: 30px;
+    line-height: 26px;
+
+    @include e(inner) {
+      text-decoration: none;
+      color: #666;
+    }
+  }
+
+  @include b(brand-selector) {
+    border-top: 0;
+    margin: 0;
+    position: relative;
+
+    .sph-selector-group__header {
+      padding-bottom: 87px !important;
+    }
+
+    .sph-selector-list {
+      $selectorItemHeight: 52px;
+      $selectorItemWidth: 105px;
+      $selectorItemBorderWidth: $border-width-base;
+
+      $selectorItemContentWidth: calc(
+        $selectorItemWidth - $selectorItemBorderWidth * 2
+      );
+      // 未指定 Flex 容器宽度时，右侧会多出一段空白，导致左侧宽度被压缩；因此，通过指定固定宽度来取消右侧空白
+      width: calc($selectorItemWidth * 9);
+
+      .sph-selector-item {
+        width: $selectorItemWidth;
+        height: $selectorItemHeight;
+        margin-right: 0;
+        border: $selectorItemBorderWidth solid #e4e4e4;
+        text-align: center;
+        overflow: hidden;
+
+        .sph-selector-item__inner {
+          display: block;
+          height: calc($selectorItemHeight - $selectorItemBorderWidth * 2);
+          line-height: calc($selectorItemHeight - $selectorItemBorderWidth * 2);
+          white-space: nowrap;
+          font-weight: 700;
+          color: #e1251b;
+          font-style: italic;
+          font-size: 14px;
+
+          .sph-selector-item__name {
+            width: $selectorItemContentWidth;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .sph-selector-item__img {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}

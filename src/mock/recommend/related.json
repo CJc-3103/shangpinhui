@@ -1,0 +1,34 @@
+{
+    "relatedCategoryList": [
+        "手机",
+        "手机壳",
+        "内存卡",
+        "Iphone配件",
+        "贴膜",
+        "手机耳机",
+        "移动电源",
+        "平板电脑"
+    ],
+    "relatedProductList": [
+        {
+            "title": "DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本",
+            "imgUrl": "/images/home/like_01.png",
+            "price": 237.89
+        },
+        {
+            "title": "雨伞",
+            "imgUrl": "/images/home/like_02.png",
+            "price": 39.99
+        },
+        {
+            "title": "阳光美包新款单肩包女包时尚子母包四件套女阳光美包新款单肩包女包时尚子母包四件套女",
+            "imgUrl": "/images/home/like_03.png",
+            "price": 359.99
+        },
+        {
+            "title": "新品电磁炉",
+            "imgUrl": "/images/home/like_01.png",
+            "price": 237.89
+        }
+    ]
+}

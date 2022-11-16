@@ -1,0 +1,119 @@
+@use './vars' as *;
+
+@mixin txt-v-center($height) {
+  height: var($height);
+  line-height: var($height);
+}
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// @mixin li-v-gap($gap) {
+//   &:nth-child(n + 2) {
+//     margin-top: $gap; // 设置除第一个卡片外其他卡片的上间距
+//   }
+// }
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin minus($property, $expression) {
+  #{$property}: -moz-calc(-1 * var(#{$expression}));
+  #{$property}: -webkit-calc(-1 * var(#{$expression}));
+  #{$property}: calc(-1 * var(#{$expression}));
+}
+
+@mixin utils-auto-width {
+  // display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+@mixin utils-user-select($value) {
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
+}
+
+@mixin utils-clearfix {
+  $selector: &;
+
+  @at-root {
+    #{$selector}::before,
+    #{$selector}::after {
+      display: table;
+      content: '';
+    }
+    #{$selector}::after {
+      clear: both;
+    }
+  }
+}
+
+@mixin utils-vertical-center {
+  $selector: &;
+
+  @at-root {
+    #{$selector}::after {
+      display: inline-block;
+      content: '';
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+@mixin utils-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin utils-multi-line-ellipsis($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; //将盒子转换为弹性盒子
+  -webkit-box-orient: vertical; //文本显示方式，默认水平
+  -webkit-line-clamp: $lines; //设置显示多少行
+}
+@mixin utils-multi-line-ellipsis2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  &:after {
+    content: '....';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: $gap-small;
+    width: 20%;
+    background: linear-gradient(to right);
+  }
+}
+
+@mixin utils-unstyled-table {
+  thead,
+  tbody,
+  tfoot,
+  tr {
+    display: block;
+    width: 100%;
+  }
+  th,
+  td {
+    display: inline-block;
+  }
+}
+
+.underlined {
+  border-bottom: 1px solid #ddd;
+}
+
+[class$='--inline'] {
+  display: inline-block;
+}

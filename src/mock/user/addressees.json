@@ -1,0 +1,28 @@
+[
+    {
+        "userId": 2,
+        "addresseeList": [
+            {
+                "id": 1,
+                "userAddress": "北京市昌平区2",
+                "consignee": "张三",
+                "phoneNum": "13755554444",
+                "isDefault": 1
+            },
+            {
+                "id": 2,
+                "userAddress": "上海市浦东区1",
+                "consignee": "李四",
+                "phoneNum": "15011111111",
+                "isDefault": 0
+            },
+            {
+                "id": 3,
+                "userAddress": "杭州市萧山区3",
+                "consignee": "王五",
+                "phoneNum": "13844465572",
+                "isDefault": 0
+            }
+        ]
+    }
+]

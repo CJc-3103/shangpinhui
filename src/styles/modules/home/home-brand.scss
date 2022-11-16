@@ -1,0 +1,29 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@include b(home-main) {
+  @include b(hot-brand) {
+    margin: $gap-small 0;
+  }
+
+  @include b(hot-brand-list) {
+    overflow: hidden;
+    padding: $gap-middle 0;
+    background: #f7f7f7;
+  }
+
+  @include b(hot-brand-item) {
+    width: 120px;
+    float: left;
+    height: 37px;
+
+    @include e(img) {
+      padding: 0 $gap-small;
+
+      &:nth-child(n + 2) {
+        border-left: 1px dotted #ccc;
+      }
+    }
+  }
+}

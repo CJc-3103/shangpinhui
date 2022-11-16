@@ -1,0 +1,63 @@
+@use '@/styles/common/vars' as *;
+@use '@/styles/common/utils' as *;
+@use '@/styles/modules/bem-mixins' as *;
+@use '@/styles/modules/vars' as *;
+
+$like-item-width: 167px;
+$like-item-height: 123px;
+
+@include b(like-container) {
+  border: 1px solid #ddd;
+  margin: $gap-middle $gap-large;
+  @include e(header) {
+    border-bottom: 1px solid #ddd;
+    background: #f1f1f1;
+    color: #666;
+    margin: 0;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@include b(like-group) {
+  padding: 15px 11px;
+  overflow: hidden;
+  display: flex;
+}
+
+@include b(like-item) {
+  width: 25%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  @include e(img) {
+    width: $like-item-width;
+    height: $like-item-height;
+
+    & > img {
+      max-width: $like-item-width;
+      max-height: $like-item-height;
+    }
+  }
+
+  @include e(title) {
+    padding: 0 $gap-middle;
+    height: 31.2px;
+    @include utils-multi-line-ellipsis(2);
+  }
+  @include e(price) {
+    padding: 0 $gap-middle;
+    margin-bottom: $gap-large;
+    font-size: $font-size-medium;
+    color: #c81623;
+    font-weight: 700;
+  }
+  @include e(extra) {
+    width: 100%;
+    padding: 0 $gap-middle;
+    text-align: left;
+  }
+}

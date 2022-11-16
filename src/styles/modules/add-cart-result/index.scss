@@ -1,0 +1,92 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@include b(add-cart-result) {
+  background-color: #f4f4f4;
+
+  @include e(header) {
+    font-weight: 400;
+    font-size: $font-size-medium;
+    color: #6aaf04;
+    padding-top: $gap-middle;
+  }
+
+  @include e(body) {
+    overflow: hidden;
+    padding: $gap-small 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include e(content) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include e(img) {
+    $imgSize: 60px;
+    border: 1px solid #dfdfdf;
+
+    img {
+      width: $imgSize;
+    }
+  }
+
+  @include e(info) {
+    color: #444;
+    float: left;
+    margin-left: $gap-small;
+  }
+
+  @include e(title) {
+    width: 100%;
+    line-height: $line-height-extra-large;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: $font-size-base;
+  }
+
+  @include e(attr) {
+    color: #aaa;
+  }
+
+  @include b(btn) {
+    padding: 7px 36px;
+    font-size: 15px;
+    line-height: 22px;
+    color: #333;
+    background-color: #eee;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid #e1e1e1;
+
+    &:hover {
+      border: 1px solid #eaeaea;
+    }
+
+    @include m(detail) {
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+
+    @include m(cart) {
+      background-color: $tab-color-active-1;
+      color: #fff;
+
+      &:hover {
+        color: #4f4cd4;
+      }
+    }
+  }
+
+  @include b(icon-pc-right) {
+    background-color: #fff;
+    border: 2px solid #6aaf04;
+    padding: 3px;
+    margin-right: 8px;
+    border-radius: 15px;
+  }
+}

@@ -1,0 +1,40 @@
+{
+    "suitList": [
+        {
+            "imgUrl": "/images/item/dp01.png",
+            "title": "Feless费勒斯VR",
+            "price": 39
+        },
+        {
+            "imgUrl": "/images/item/dp02.png",
+            "title": "Feless费勒斯VR",
+            "price": 39
+        },
+        {
+            "imgUrl": "/images/item/dp03.png",
+            "title": "Feless费勒斯VR",
+            "price": 39
+        }
+    ],
+    "paramList": [
+        "分辨率：1920*1080(FHD)",
+        "后置摄像头：1200万像素",
+        "前置摄像头：500万像素",
+        "核 数：其他",
+        "频 率：以官网信息为准",
+        "品牌： Apple",
+        "商品名称：APPLEiPhone 6s Plus",
+        "商品编号：1861098",
+        "商品毛重：0.51kg",
+        "商品产地：中国大陆",
+        "热点：指纹识别，Apple Pay，金属机身，拍照神器",
+        "系统：苹果（IOS）",
+        "像素：1000-1600万",
+        "机身内存：64GB"
+    ],
+    "detailImgList": [
+        "/images/item/intro01.png",
+        "/images/item/intro02.png",
+        "/images/item/intro03.png"
+    ]
+}

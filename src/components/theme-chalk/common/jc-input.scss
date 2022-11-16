@@ -1,0 +1,22 @@
+@use '@/styles/common/vars' as *;
+@use '../utils/mixins' as *;
+
+@include b(input) {
+  position: relative;
+  font-size: $font-size-base;
+  display: inline-block;
+  width: 100%;
+  @include e(inner) {
+    -webkit-appearance: none;
+    background-color: $input-background-color;
+    background-image: none;
+    border: $input-border;
+    box-sizing: border-box;
+    color: $input-font-color;
+    display: inline-block;
+    font-size: inherit;
+    outline: none;
+    transition: $border-transition-base;
+    width: 100%;
+  }
+}

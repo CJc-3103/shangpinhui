@@ -1,0 +1,63 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@include b(payment-success-main) {
+  margin: $gap-large auto;
+  padding: $gap-extra-large;
+  border: 1px solid rgb(211, 211, 211);
+
+  @include e(wrap) {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  @include e(header) {
+    margin: $gap-large 0;
+    font-weight: 700;
+    font-size: $font-size-extra-large;
+    line-height: $line-height-extra-extra-large;
+    img {
+      width: 48px;
+      height: 48px;
+      max-width: 100%;
+      vertical-align: middle;
+      border: 0;
+      margin-right: 14px;
+    }
+  }
+
+  @include e(content) {
+    margin-left: 66px;
+    font-size: 15px;
+  }
+
+  @include e(btn-group) {
+    margin: 30px 0;
+    line-height: $line-height-large;
+  }
+  @include e(btn) {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 2px;
+    user-select: none;
+    font-size: $font-size-large;
+    padding: 4px 20px;
+    line-height: $line-height-primary;
+    text-decoration: none;
+    border: 1px solid #e1e1e1;
+  }
+  @include e(btn-to-order) {
+    margin-right: 13px;
+    color: $color-white;
+    background-color: $tab-color-active-1;
+    border-color: $tab-color-active-1;
+  }
+  @include e(btn-to-shop) {
+    color: #666;
+    background-color: #eee;
+  }
+}

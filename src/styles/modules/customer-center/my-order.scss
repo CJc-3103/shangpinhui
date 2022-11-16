@@ -1,0 +1,159 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+$tableInnerPadding: 6px 8px;
+$tableInnerBorder: 1px solid #e6e6e6;
+$headerHeight: $line-height-small;
+
+@include b(order) {
+  margin: 0 20px;
+  color: #666;
+
+  @include e(header) {
+    margin-bottom: 22px;
+    border: 1px solid #ddd;
+  }
+  @include e(title) {
+    padding: 12px 10px;
+    font-size: 15px;
+    background-color: #f1f1f1;
+    text-align: left;
+  }
+}
+
+@include b(order-table) {
+  width: 100%;
+
+  @include e(header) {
+    color: #666;
+    border-collapse: separate;
+    border-radius: 2px;
+    border-spacing: 0;
+
+    .sph-order-table-row--separate {
+      height: $gap-middle;
+    }
+
+    .sph-order-table-col {
+      padding: $tableInnerPadding;
+      color: #666;
+      font-weight: 700;
+      line-height: $headerHeight;
+      vertical-align: bottom;
+      background-color: #f4f4f4;
+      border-bottom: $tableInnerBorder;
+    }
+  }
+}
+
+@include b(order-table-row) {
+  border: $tableInnerBorder;
+
+  @include m(separate) {
+    height: 18px;
+    border: none;
+  }
+}
+
+@include b(order-table-col) {
+  padding: $tableInnerPadding;
+  line-height: $headerHeight;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #666;
+
+  @include m(center) {
+    text-align: center;
+  }
+
+  // 前两列
+  @include m(product) {
+    width: 60%;
+
+    @include e(inner) {
+      display: inline-block;
+      // 第一列
+      @include m(product-info) {
+        width: 16.67%;
+      }
+      // 第二列
+      @include m(order-info) {
+        width: 83.33%;
+      }
+    }
+  }
+
+  @include m((consignee, status)) {
+    width: 8%;
+  }
+  @include m((price, action)) {
+    width: 12%;
+  }
+}
+
+// 订单
+@include b(order-item) {
+  @include e(header) {
+    padding: $tableInnerPadding;
+    line-height: $headerHeight;
+    vertical-align: bottom;
+    background-color: #f4f4f4;
+  }
+  @include e(header-wrap) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include e(header-info) {
+    font-weight: 700;
+  }
+
+  @include e(delete) {
+    margin-right: $gap-middle;
+    &:hover {
+      color: #4cb9fc;
+    }
+  }
+
+  @include e(content) {
+    border: 1px solid #e6e6e6;
+    border-collapse: collapse;
+    border-radius: 2px;
+    width: 100%;
+
+    .sph-order-table-col {
+      border: $tableInnerBorder;
+    }
+  }
+}
+
+@include b(product-info) {
+  vertical-align: top;
+
+  @include e(wrap) {
+    display: inline-flex;
+  }
+
+  @include e(inner) {
+    display: inline-flex;
+    min-width: 80px;
+    max-width: 250px;
+  }
+
+  @include e(title) {
+    color: #e1251b;
+    margin-left: $gap-middle;
+  }
+  @include e(amount) {
+    text-align: center;
+  }
+  @include e(service) {
+    color: #666;
+  }
+}
+
+@include b(order-pagination) {
+  margin: calc(38px - 1.7px) 0;
+}

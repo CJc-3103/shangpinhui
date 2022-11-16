@@ -1,0 +1,45 @@
+@use '../../common/vars' as *;
+@use '../../common/utils' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@use './my-order' as *;
+
+@include b(customer-center) {
+  @include e(body) {
+    padding: $gap-small;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include e(main) {
+    width: 83.33%;
+  }
+
+  @include b(aside-menu) {
+    width: 16.67%;
+  }
+
+  @include b(aside-menu-group) {
+    line-height: $line-height-extra-large;
+
+    @include e(title) {
+      font-weight: 700;
+      padding: $gap-extra-small;
+    }
+    @include e(title-pre-fix) {
+      color: #77b72c;
+    }
+  }
+
+  @include b(aside-menu-item) {
+    margin-bottom: 6px;
+    border-bottom: 1px solid #ededed;
+    text-align: center;
+
+    @include when(active) {
+      color: $tab-color-active-1;
+    }
+  }
+}

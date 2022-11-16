@@ -1,0 +1,48 @@
+@use '../common/vars' as *;
+//#region 通用 --
+// 布局与尺寸
+$line-height-primary: 22px;
+
+//#region 颜色 ----
+
+$font-color-1: #333;
+$font-color-2: #ccc;
+
+$fill-color-1: #ea4a36;
+
+$tab-color-active-1: #e1251b;
+$tab-color-active-2: #e60012;
+$tab-color-active-3: rgb(111, 196, 92);
+
+// 背景色
+$background-color-primary: #fafafa;
+//#endregion ----
+
+//#region 动画 ----
+
+$animate-duration-base: 800ms;
+$animate-duration-fast: 400ms;
+$animate-delay-base: 500ms;
+//#endregion ----
+
+//#endregion --
+
+//#region  --
+
+// 布局与尺寸
+$section-width: 1200px;
+$categoryWidth: 210px;
+$categoryGap: $gap-small;
+$categoryHeight: 454px;
+
+$min-body-width: $section-width;
+$sph-font-size-base: $font-size-extra-small;
+// 首页
+$main-top-height: 464px;
+$banner-width: 740px;
+$banner-padding: $gap-small;
+
+// 主图
+$main-picture-size: 400px;
+
+//#endregion --

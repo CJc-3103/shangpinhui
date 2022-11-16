@@ -1,0 +1,89 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@include b(header) {
+  @include b(header-section-group) {
+    @include m(top) {
+      background-color: #eaeaea;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+
+  @include b(header-section) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include b(header-account) {
+    @include e(welcome) {
+      margin-right: $gap-small;
+    }
+
+    @include e(inner) {
+      padding: 0 $gap-extra-small;
+
+      @include m(right) {
+        border-left: 1px solid #b3aeae;
+        // margin-left: 5px;
+      }
+    }
+  }
+
+  @include b(header-nav-group) {
+    display: flex;
+  }
+
+  @include b(header-nav-item) {
+    a {
+      padding: 0 10px;
+    }
+
+    &:nth-child(n + 2) {
+      a {
+        border-left: 1px solid #b3aeae;
+      }
+    }
+  }
+
+  @include b(logo) {
+    margin-bottom: -5px; // 抵消未知渲染异常
+
+    @include e(pic) {
+      width: 175px;
+      margin: 25px 45px;
+    }
+  }
+
+  @include b(search) {
+    margin-top: 35px;
+
+    input {
+      box-sizing: border-box;
+      width: 490px;
+      height: 32px;
+      padding: 0px 4px;
+      border: 2px solid $fill-color-1;
+      float: left;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .btn {
+      height: 32px;
+      width: 68px;
+      background-color: $fill-color-1;
+      border: none;
+      color: #fff;
+      float: left;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

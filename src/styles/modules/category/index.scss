@@ -1,0 +1,169 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+$category-header-border-width: 2px;
+$category-header-height: 45px;
+$category-header-border: $category-header-border-width solid $tab-color-active-1;
+$category-group-gap-top: $category-header-border-width;
+
+$category-group-width-level2: 734px;
+
+@include b(category) {
+  border-bottom: $category-header-border;
+
+  // @include e(panel) {
+  //   // 无样式，只有事件监听器
+  // }
+
+  @include e(header) {
+    width: $categoryWidth;
+    line-height: $category-header-height;
+    margin: 0;
+    background-color: $tab-color-active-1;
+    text-align: center;
+    color: #fff;
+    font-size: $font-size-base;
+    font-weight: bold;
+  }
+
+  @include e(group-container) {
+    padding-top: $category-group-gap-top;
+    position: absolute;
+    left: 0;
+    top: $category-header-height;
+    width: $categoryWidth;
+    height: 460px;
+    z-index: $index-top;
+    background-color: transparent;
+  }
+}
+
+@include b(category-section) {
+  display: flex;
+}
+
+@include b(category-group) {
+  @include m(level-1) {
+    margin-top: $categoryGap;
+    height: $categoryHeight;
+    background: #fafafa;
+  }
+
+  @include m(level-2) {
+    // display: none; // 如果通过 js 实现二、三级菜单面版的显示与隐藏，需要注释掉这里
+    position: absolute;
+    width: $category-group-width-level2;
+    min-height: 460px;
+    background: #f7f7f7;
+    left: $categoryWidth;
+    border: 1px solid #ddd;
+    top: 0;
+    // z-index: $index-top;
+    font-size: $font-size-extra-small;
+  }
+
+  @include m(level-3) {
+    border-top: 1px solid #eee;
+    padding: 6px 0;
+    overflow: hidden;
+    zoom: 1;
+    display: flex;
+    justify-content: flex-start;
+
+    &.fore {
+      border-top: 0; // 未知作用，所有 dl 都带 fore 类，相当于 border-top 都是 0
+    }
+  }
+  //#region  --
+
+  // 效果很丑
+  // &:first-child {
+  //   .category-group--level-3 {
+  //     border-top: 0; // 未知作用，所有 .category-group--level-3 都带 fore 类，相当于覆盖了
+  //   }
+  // }
+
+  //#endregion --
+
+  @include e(title) {
+    @include m(level-3) {
+      width: 54px;
+      line-height: 22px;
+      text-align: right;
+      padding: 3px 6px 0 0;
+      font-weight: 700;
+    }
+  }
+}
+
+@include b(category-item) {
+  @include m(level-1) {
+    // 只用 :hover 选择器无法适应特殊需求
+    @include when(hover) {
+      background-color: #d9d9d9;
+    }
+  }
+
+  @include m(level-2) {
+    float: left;
+    width: 650px;
+    padding: 0 4px 0 8px;
+  }
+
+  @include m(level-3) {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 415px;
+    padding: 3px 0 0;
+    overflow: hidden;
+  }
+
+  @include e(title) {
+    @include m(level-1) {
+      line-height: $line-height-extra-extra-large;
+      font-size: $font-size-base;
+      font-weight: 400;
+      overflow: hidden;
+      padding: 0 20px;
+      margin: 0;
+    }
+    @include m(level-3) {
+      line-height: 14px;
+      padding: 0 8px;
+      margin-top: $gap-small;
+      border-left: 1px solid #ccc;
+    }
+  }
+
+  @include e(txt) {
+    @include m(level-1) {
+      color: #333;
+    }
+  }
+}
+
+@include b(category-nav-list) {
+  height: 45px;
+}
+@include b(category-nav-item) {
+  margin: 0 22px;
+  line-height: 45px;
+  font-size: $font-size-medium;
+  color: #333;
+}
+
+// 面板显示与隐藏动画
+.stretch-enter-active,
+.stretch-leave-active {
+  transition: height $animate-duration-base $animate-delay-base;
+}
+.stretch-enter,
+.stretch-leave-to {
+  height: 0;
+}
+.stretch-enter-to,
+.stretch-leave {
+  height: 450px;
+}

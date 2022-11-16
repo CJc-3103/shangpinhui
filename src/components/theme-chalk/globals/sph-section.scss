@@ -1,0 +1,17 @@
+@use '@/styles/common/vars' as *;
+@use '@/styles/modules/bem-mixins' as *;
+@use '@/styles/modules/vars' as *;
+
+@include b(section-group) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include e(wrap) {
+    width: $section-width;
+  }
+}
+@include b(section-item) {
+  width: 100%;
+  position: relative;
+}

@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="App">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import 'animate.css';
+// 样式
+import '@/styles/index.scss';
+import { setGlobalStateLocal } from '@/utils/storage/backupState/backupGlobalState';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  created() {
+    // 刷新前备份
+    window.addEventListener('beforeunload', () => setGlobalStateLocal());
+  },
+};
 </script>
 
-<style>
-#app {
+<style lang="scss">
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+} */
 </style>

@@ -1,0 +1,55 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+$recommend-height: 165px;
+$recommend-head-icon-size: 57px;
+
+@include b(home-main) {
+  @include b(recommend) {
+    height: $recommend-height;
+    background-color: #eaeaea;
+    margin: $gap-small 0;
+  }
+
+  @include b(recommend-list) {
+    display: flex;
+    height: 100%;
+  }
+
+  @include b(recommend-item) {
+    width: 20.83%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: all 400ms;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    @include m(head) {
+      width: 16.67%;
+      background-color: #5c5251;
+      color: #fff;
+      // 该属性会被子元素继承，因此 .clock 和 h3 的内容都会居中
+      //   也就是图片和文本会居中
+      text-align: center;
+      padding: 30px 0;
+
+      img {
+        width: $recommend-head-icon-size;
+        height: $recommend-head-icon-size;
+      }
+
+      @include e(title) {
+        margin: 9px 0;
+        font-weight: 700;
+        font-size: $font-size-large;
+        line-height: $line-height-extra-extra-large;
+      }
+    }
+  }
+}

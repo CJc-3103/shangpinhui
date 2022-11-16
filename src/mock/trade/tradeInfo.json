@@ -1,0 +1,32 @@
+{
+    "tradeNo": "1b23c1efc8144bfc83e51807f4e71d3a",
+    "detailArrayList": [
+        {
+            "id": 12348,
+            "skuId": 4,
+            "skuName": "Apple iPhone 11 移动联通电信4G手机 双卡双待",
+            "imgUrl": "/images/cart/gocart.jpg",
+            "orderPrice": 5999,
+            "skuNum": 4,
+            "hasStock": "有货"
+        },
+        {
+            "id": 12348,
+            "skuId": 4,
+            "skuName": "Apple iPhone 11 移动联通电信4G手机 双卡双待",
+            "imgUrl": "/images/cart/gocart.jpg",
+            "orderPrice": 6758,
+            "skuNum": 1,
+            "hasStock": "缺货"
+        },
+        {
+            "id": 12348,
+            "skuId": 4,
+            "skuName": "Apple iPhone 11 移动联通电信4G手机 双卡双待",
+            "imgUrl": "/images/cart/gocart.jpg",
+            "orderPrice": 12358,
+            "skuNum": 2,
+            "hasStock": "有货"
+        }
+    ]
+}

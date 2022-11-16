@@ -1,0 +1,29 @@
+{
+    "code": 20000,
+    "message": "获取权限成功",
+    "data": [
+        {
+            "name": "home"
+        },
+        {
+            "name": "loan-apply"
+        },
+        {
+            "name": "loan-management"
+        },
+        {
+            "name": "loan-audit",
+            "children": [
+                {
+                    "name": "primary-audit"
+                },
+                {
+                    "name": "final-audit"
+                }
+            ]
+        },
+        {
+            "name": "tag-management"
+        }
+    ]
+}

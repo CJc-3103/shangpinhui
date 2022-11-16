@@ -1,0 +1,186 @@
+@use '../../common/vars' as *;
+@use '../../common/utils' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+$form-item-action-width: 270px; // 输入组件宽度
+$label-width: 80px;
+$label-gap: $gap-extra-small;
+$form-item-width: $form-item-action-width + $label-width;
+$form-item-line-height: 38px;
+$btn-get-code-gap: $gap-small;
+$btn-get-code-width: 80px;
+
+@include b(register) {
+  position: relative;
+  height: 445px;
+  border: 1px solid rgb(223, 223, 223);
+
+  @include e(head) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 6px 15px;
+    font-size: $font-size-extra-large;
+    line-height: $line-height-extra-extra-large;
+    border-bottom: 1px solid #dfdfdf;
+    color: #333;
+    background: #ececec;
+
+    @include e(login) {
+      font-size: $font-size-base;
+    }
+
+    @include e(login-text) {
+      color: $tab-color-active-1;
+    }
+  }
+
+  @include e(form-wrap) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include b(register-form) {
+    width: $form-item-width;
+    // width: calc($form-item-width * 2 + $gap-small);
+
+    @include e(input) {
+      width: 100%;
+      padding-left: 8px;
+      box-sizing: border-box;
+      outline: none;
+      border: 1px solid #999;
+
+      & > input {
+        font-size: $font-size-extra-small;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      &[type='text'] {
+        height: $form-item-line-height;
+      }
+    }
+
+    @include e(protocol) {
+      line-height: normal;
+    }
+
+    @include e(show-protocol) {
+      @include pseudo((hover, link)) {
+        color: #4f4cd4;
+      }
+    }
+  }
+
+  @include b(register-form-item) {
+    margin-bottom: 18px;
+    line-height: $form-item-line-height;
+    position: relative;
+
+    label {
+      padding-right: $label-gap;
+      line-height: $form-item-line-height;
+      vertical-align: middle;
+    }
+
+    .button {
+      outline: none;
+      width: 100%;
+      line-height: 36px;
+      background: #e1251b;
+      color: #fff !important;
+      display: inline-block;
+      font-size: $font-size-medium;
+    }
+
+    img {
+      vertical-align: sub;
+    }
+  }
+
+  @include e(wrap) {
+    @include b(register-verification) {
+      line-height: $form-item-line-height;
+      display: inline-block;
+      margin-right: $btn-get-code-width + $btn-get-code-gap;
+      @include utils-auto-width;
+    }
+
+    @include e(input) {
+      vertical-align: middle;
+    }
+    @include e(btn) {
+      position: absolute;
+      right: 0;
+      text-align: center;
+      display: inline-block;
+      margin-left: $btn-get-code-gap;
+      vertical-align: middle;
+      width: $btn-get-code-width;
+      line-height: $form-item-line-height - $border-width-base * 2;
+      box-sizing: border-box;
+      border: $border-width-base solid rgb(71, 70, 70);
+      color: white;
+      background-color: #999;
+    }
+  }
+
+  @include b(protocol) {
+    z-index: $index-popper;
+    width: 50%;
+    max-height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-white;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    font-size: $font-size-base;
+    line-height: $line-height-middle;
+
+    @include e(header) {
+      background-color: #ececec;
+      padding: $gap-small;
+    }
+
+    @include e(content) {
+      overflow-y: auto;
+      padding: $gap-extra-large;
+    }
+
+    @include e(footer) {
+      padding: $gap-large;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    @include e(btn-wrap) {
+      display: inline-block;
+      width: 50%;
+    }
+
+    @include e(btn-confirm) {
+      width: 100%;
+      margin: 0 auto;
+      padding: $gap-small 0;
+      line-height: 32px;
+      color: $color-white;
+      background-color: $tab-color-active-1;
+      border: 0;
+    }
+  }
+
+  @include b(mask) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: calc($index-popper - 1);
+    background-color: $color-black;
+    opacity: 0.15;
+  }
+}

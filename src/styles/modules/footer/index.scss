@@ -1,0 +1,71 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@include b(footer) {
+  background-color: #eaeaea;
+
+  @include when(register-view) {
+    background-color: #fff;
+  }
+
+  @include e(wrap) {
+    padding: 0 $gap-small;
+    width: 100%;
+  }
+}
+
+@include b(footer-section) {
+  padding: $gap-large;
+}
+
+@include b(important-link) {
+  border-bottom: 1px solid #e4e1e1;
+  border-top: 1px solid #e4e1e1;
+  overflow: hidden;
+  padding-left: 40px;
+}
+
+@include b(important-link-group) {
+  width: 16.6666667%;
+  float: left;
+
+  @include e(title) {
+    font-size: $font-size-base;
+  }
+
+  @include pseudo(last-child) {
+    > img {
+      width: 121px;
+    }
+  }
+}
+
+@include b(important-link-item) {
+  line-height: $line-height-small;
+}
+
+@include b(copyright) {
+  @include e(info) {
+    margin: $gap-small 0;
+    text-align: center;
+  }
+}
+
+@include b(help-link-group) {
+  text-align: center;
+}
+
+@include b(help-link-item) {
+  display: inline;
+
+  // 为了减少页面结构中与内容无关的元素，删除了 html 元素 <span class="space"></span>，改为 ::after 伪元素
+  &:not(:last-child)::after {
+    content: '';
+    border-left: 1px solid #666;
+    width: 1px;
+    height: 13px;
+    background: #666;
+    margin: 8px 10px;
+  }
+}

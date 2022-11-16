@@ -1,0 +1,155 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+$order-tips-line-height: $line-height-extra-extra-large;
+
+@include b(pay-main) {
+  margin-bottom: $gap-large;
+
+  a:hover {
+    color: #4cb9fc;
+  }
+
+  @include e(support-payment) {
+    color: $tab-color-active-1;
+    font-weight: 700;
+  }
+
+  @include e(tips) {
+    padding: $gap-middle;
+  }
+
+  @include e(info-container) {
+    padding: 0 0 $gap-middle $gap-extra-large;
+    margin-bottom: $gap-small;
+    border: 2px solid $tab-color-active-1;
+  }
+
+  @include e(payment-detail) {
+    border: 1px solid #ddd;
+    padding: $gap-extra-large;
+  }
+
+  @include e(submit-wrap) {
+    text-align: center;
+  }
+  @include e(btn-submit) {
+    display: inline-block;
+    padding: 15px 45px;
+    margin: 15px 0 10px;
+    font: 18px '微软雅黑';
+    font-weight: 700;
+    border-radius: 0;
+    background-color: $tab-color-active-1;
+    border: 1px solid $tab-color-active-1;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+  }
+
+  // 强调文本
+  @include b(em) {
+    color: $tab-color-active-1;
+  }
+
+  @include b(order-tips) {
+    font-size: $font-size-base;
+    // 与原网页的文字位置对不上
+    height: 35px;
+    // 无法理解这里的 21px 是什么原理
+    //   line-height: 21px;
+
+    @include e(icon) {
+      width: 30px;
+      height: $order-tips-line-height;
+      display: inline-block;
+      background: url(~@/assets/images/icon_success_error.png) no-repeat 0 0;
+    }
+    @include e(title) {
+      margin-left: 8px;
+      line-height: $order-tips-line-height;
+      vertical-align: top;
+      font-weight: bold;
+    }
+  }
+
+  @include b(payment-tips) {
+    line-height: $line-height-large;
+    text-indent: 38px;
+    display: flex;
+    justify-content: space-between;
+
+    @include e(total-price) {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 22.5px;
+    }
+    @include e(price) {
+      font-size: $font-size-large;
+    }
+  }
+
+  @include b(important-info) {
+    @include e(title) {
+      margin: 9px 0;
+      font-size: $font-size-base;
+      line-height: 21px;
+      color: $tab-color-active-1;
+    }
+
+    @include e(list) {
+      padding-left: $gap-extra-large;
+      line-height: $line-height-primary;
+      font-size: $font-size-base;
+    }
+  }
+  @include b(platform-info) {
+    list-style-type: decimal;
+  }
+  @include b(account-info) {
+    list-style-type: disc;
+  }
+
+  @include b(payment-way) {
+    @include e(title) {
+      line-height: 36px;
+      margin: $gap-middle 0;
+    }
+
+    @include e(list) {
+      margin: 0 10px 12px 20px;
+      flex-wrap: wrap;
+    }
+
+    @include e(item) {
+      display: inline-block;
+      line-height: $line-height-small;
+      margin: 2px;
+      padding: $gap-extra-small $gap-large;
+      border: 1px solid #ddd;
+      cursor: pointer;
+
+      @include when(active) {
+        border: 1px solid $tab-color-active-3;
+      }
+    }
+
+    @include e(item-wrap) {
+      display: block;
+      width: 124px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      vertical-align: middle;
+
+      & > img {
+        max-width: 124px;
+        max-height: 34px;
+      }
+    }
+  }
+}

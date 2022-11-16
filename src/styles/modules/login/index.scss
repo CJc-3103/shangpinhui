@@ -1,0 +1,171 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+$loginFormItemHeight: 32px;
+
+@include b(login-main) {
+  height: 487px;
+  background-color: #e93854;
+  @include e(container) {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  @include e(bg-wrap) {
+    width: 900px;
+    height: 487px;
+    background: url(~@/assets/images/login/login_bg.png) no-repeat;
+    position: relative;
+  }
+
+  @include e(btn-register) {
+    font-size: 15px;
+    line-height: 38px;
+
+    @include pseudo(hover) {
+      color: #4cb9fc;
+      text-decoration: underline;
+    }
+  }
+
+  @include e(btn-login) {
+    background-color: #e1251b;
+    padding: 6px;
+    border-radius: 0;
+    font-size: $font-size-medium;
+    font-family: 微软雅黑;
+    word-spacing: 4px;
+    border: 1px solid #e1251b;
+    color: #fff;
+    width: 100%;
+    height: 38px;
+    outline: none;
+  }
+}
+
+@include b(login-card) {
+  width: 420px;
+  height: 406px;
+  box-sizing: border-box;
+  background: #fff;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  padding: $gap-large;
+
+  @include e(wrap) {
+    border: 1px solid #ddd;
+  }
+
+  @include e(foot) {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@include b(login-tabs) {
+  width: 380px;
+
+  @include e(nav-item) {
+    width: 50%;
+    float: left;
+    text-align: center;
+
+    @include when(active) {
+      .sph-login-tabs__nav-item-inner {
+        border-bottom: none;
+        border-top-color: #28a3ef;
+        color: $tab-color-active-1;
+      }
+    }
+  }
+  @include e(nav-item-inner) {
+    width: 100%;
+    display: block;
+    line-height: 50px;
+    font-size: $font-size-extra-large;
+    font-weight: 700;
+    color: #333;
+    border: 1px solid #ddd;
+    text-decoration: none;
+  }
+
+  @include e(content) {
+    padding: 18px;
+  }
+}
+
+@include b(login-form) {
+  box-sizing: border-box;
+  border-top: none;
+  margin: 15px 0 18px 0;
+  font-size: 12px;
+  line-height: $line-height-small;
+
+  @include e(input) {
+    width: 302px;
+    height: $loginFormItemHeight;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-left: none;
+    float: left;
+    padding: 6px 0;
+    font-size: $font-size-base;
+    line-height: $line-height-primary;
+    padding: 0 8px;
+
+    border-radius: 0 2px 2px 0;
+    outline: none;
+
+    input {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+
+  @include e(setting) {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    font-size: $font-size-extra-small;
+  }
+
+  @include e(submit) {
+    margin-top: 25px;
+  }
+
+  .icon {
+    float: left;
+    width: 37px;
+    height: $loginFormItemHeight;
+    border: 1px solid #ccc;
+    background: url(~@/assets/images/icons.png) no-repeat;
+    box-sizing: border-box;
+    border-radius: 2px 0 0 2px;
+  }
+  .icon-account {
+    background-position: -10px -201px;
+  }
+  .icon-password {
+    background-position: -72px -201px;
+  }
+}
+
+@include b(form-item-input) {
+  height: $loginFormItemHeight;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+// 友链登录
+@include b(login-related-link-group) {
+  display: flex;
+  justify-content: flex-start;
+}
+@include b(login-related-link-item) {
+  margin-right: $gap-extra-small;
+}

@@ -1,0 +1,118 @@
+@use '@/styles/common/vars' as *;
+@use '@/styles/common/utils' as *;
+@use '../utils/mixins' as *;
+
+@include b(form) {
+  @include m(label-right) {
+    & .jc-form-item__label {
+      text-align: right;
+    }
+  }
+  @include m(label-top) {
+    & .jc-form-item {
+      flex-direction: column;
+    }
+    & .jc-form-item__label-wrap {
+      position: static;
+    }
+    & .jc-form-item__label {
+      padding-bottom: $gap-small;
+    }
+  }
+  @include m(inline) {
+    flex-wrap: wrap;
+    & .jc-form-item {
+      display: inline-block;
+      margin-right: $gap-small;
+    }
+    & .jc-form-item__content {
+      display: inline-block;
+    }
+  }
+}
+
+@include b(form-item) {
+  @include utils-auto-width;
+  display: flex;
+  margin-bottom: 22px;
+
+  & .jc-form-item {
+    margin-bottom: 0;
+  }
+
+  & .jc-input__validateIcon {
+    display: none;
+  }
+
+  @include e(label-wrap) {
+    position: absolute;
+    display: block;
+    .jc-form-item__label {
+      display: inline-block;
+    }
+  }
+  @include e(label) {
+    text-align: left;
+    vertical-align: middle;
+    font-size: $form-label-font-size;
+    color: $color-text-regular;
+    padding-right: $gap-small;
+    box-sizing: border-box;
+  }
+
+  @include e(content) {
+    @include utils-auto-width;
+    display: flex;
+    position: relative;
+    font-size: 14px;
+
+    .jc-input-group {
+      vertical-align: top;
+    }
+  }
+  @include e(error) {
+    color: $color-danger;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  @include when(required) {
+    @include pseudo('not(.is-no-asterisk)') {
+      & > .jc-form-item__label:before,
+      & .jc-form-item__label-wrap > .jc-form-item__label:before {
+        content: '*';
+        color: $color-danger;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include when(error) {
+    & .jc-input__inner,
+    & .jc-textarea__inner {
+      &,
+      &:focus {
+        border-color: $color-danger;
+      }
+    }
+    & .jc-input-group__append,
+    & .jc-input-group__prepend {
+      & .jc-input__inner {
+        border-color: transparent;
+      }
+    }
+    .jc-input__validateIcon {
+      color: $color-danger;
+    }
+  }
+
+  @include m(feedback) {
+    .jc-input__validateIcon {
+      display: inline-block;
+    }
+  }
+}

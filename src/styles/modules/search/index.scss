@@ -1,0 +1,237 @@
+@use '../../common/vars' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@use './search-selector' as *;
+
+$pagination-height: 66px;
+$search-product-item-padding-left: $gap-middle;
+
+@include b(search-main) {
+  margin: $gap-middle 0;
+
+  @include e(breadcrumb) {
+    margin-bottom: $gap-extra-small;
+    overflow: hidden;
+    display: flex;
+  }
+
+  @include e(breadcrumb-all) {
+    padding: 3px 15px;
+    margin: 0;
+    font-weight: 400;
+    border-radius: 3px;
+  }
+
+  @include e(breadcrumb-all-inner) {
+    display: inline-block;
+    line-height: $line-height-small;
+    color: #666;
+    text-decoration: none;
+
+    @include pseudo(hover) {
+      color: #4cb9fc;
+    }
+  }
+
+  @include e(sort-tab) {
+    min-height: 40px;
+    padding-right: $gap-large;
+    background: #fbfbfb;
+    border: 1px solid #e2e2e2;
+    padding-left: 0;
+    border-radius: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  }
+
+  @include e(product) {
+    margin: $gap-large 0;
+  }
+
+  // 面包屑
+  @include b(search-breadcrumb-list) {
+    margin-top: -#{$gap-extra-small};
+    list-style: none;
+    font-size: 0;
+    line-height: 0;
+    padding-top: $gap-extra-small;
+    margin-bottom: 18px;
+  }
+
+  @include b(search-breadcrumb-item) {
+    font-size: 12px;
+    margin: 0 $gap-extra-small $gap-extra-small 0;
+    display: inline-block;
+    overflow: hidden;
+    color: #000;
+    background: #f7f7f7;
+    padding: 0 7px;
+    line-height: $line-height-middle;
+    border: 1px solid #dedede;
+    white-space: nowrap;
+    transition: color 400ms;
+
+    .jc-tag__close {
+      margin-left: $gap-small;
+      cursor: pointer;
+      font: $font-size-base 400 tahoma;
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    @include pseudo(hover) {
+      color: #28a3ef;
+    }
+  }
+
+  //
+  @include b(search-sort-tab-menu) {
+    position: relative;
+    left: 0;
+    display: block;
+    margin: 0 10px 0 0;
+    display: flex;
+  }
+
+  @include b(search-sort-tab-item) {
+    line-height: $line-height-small;
+
+    @include e(inner) {
+      display: block;
+      padding: 11px 15px;
+      color: #777;
+      text-decoration: none;
+    }
+
+    @include when(active) {
+      .sph-search-sort-tab-item__inner {
+        background: $tab-color-active-1;
+        color: #fff;
+      }
+    }
+
+    @include when(order-asc) {
+      .sph-search-sort-tab-item__inner::after {
+        content: '⬆';
+        display: inline;
+      }
+    }
+
+    @include when(order-desc) {
+      .sph-search-sort-tab-item__inner::after {
+        content: '⬇';
+        display: inline;
+      }
+    }
+  }
+
+  @include b(search-product-item) {
+    height: 100%;
+    width: 20%;
+    margin-top: $gap-small;
+    line-height: $line-height-extra-large;
+    padding-left: $search-product-item-padding-left;
+
+    @include e(link-wrap) {
+      cursor: pointer;
+    }
+
+    @include e(img) {
+      width: 214px;
+      height: 242px;
+      color: #666;
+
+      img {
+        width: 214px;
+        height: 242px;
+        height: auto;
+        vertical-align: middle;
+      }
+    }
+
+    @include e(price) {
+      font-size: $font-size-large;
+      color: #c81623;
+      font-weight: 700;
+
+      .price {
+        // margin-left: -5px; // 可能是为了抵消原生 html 编写页面时多出来的空白，此处编译器已剔除则不需要
+      }
+    }
+
+    @include e(title) {
+      width: 85%;
+      overflow: hidden;
+      margin-bottom: 8px;
+      min-height: 38px;
+      line-height: 1.8;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      color: #333;
+    }
+
+    @include e(action) {
+      padding: 12px 15px 12px 0;
+    }
+
+    @include e(feedback) {
+      height: 22px;
+      font-size: 13px;
+      color: #a7a7a7;
+    }
+
+    @include e(feedback-count) {
+      font-weight: 700;
+      color: #646fb0;
+    }
+
+    @include e(feedback-count) {
+      padding: 12px 0;
+    }
+
+    // a:link 有默认样式，而且权重比这里高，需要覆盖掉
+    a:link:hover {
+      text-decoration: none;
+    }
+
+    @include e(btn) {
+      display: inline-block;
+      min-width: 85px;
+      line-height: $line-height-small;
+      margin-right: 15px;
+      padding: 2px 14px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: $font-size-extra-small;
+      border-radius: 0;
+      color: #8c8c8c;
+      background-color: transparent;
+      border: 1px solid #8c8c8c;
+      text-decoration: none;
+      cursor: pointer;
+
+      @include pseudo(hover) {
+        border: 1px solid #666;
+        color: $color-white;
+        background-color: #666;
+        text-decoration: none;
+      }
+    }
+
+    @include e(btn-add-cart) {
+      border: 1px solid $tab-color-active-1;
+      color: $tab-color-active-1;
+
+      @include pseudo(hover) {
+        border: 1px solid $tab-color-active-1;
+        background-color: $tab-color-active-1;
+      }
+    }
+  }
+
+  @include b(search-pagination) {
+    height: $pagination-height;
+  }
+}

@@ -1,0 +1,13 @@
+@use '@/styles/common/vars' as *;
+@use '../utils/mixins' as *;
+
+@include b(checkbox) {
+  line-height: $line-height-middle;
+  @include e(inner-check) {
+    vertical-align: middle;
+  }
+  @include e(text) {
+    vertical-align: middle;
+    padding-left: $gap-extra-small;
+  }
+}

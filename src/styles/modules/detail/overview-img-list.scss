@@ -1,0 +1,65 @@
+@use '../../common/vars' as *;
+@use '../vars' as *;
+
+.picture_overview.swiper-container {
+  margin-top: 5px;
+  width: $main-picture-size;
+  position: relative;
+  overflow: hidden;
+
+  $itemHeight: 56px;
+  $btnWidth: 10px;
+  $btnGap: 4px;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: calc($itemHeight / 2) - 6px;
+    text-align: center;
+    width: $btnWidth;
+    height: $itemHeight;
+    line-height: $itemHeight;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background: #ebebeb;
+    background-image: none;
+    cursor: pointer;
+  }
+  .swiper-button-prev {
+    left: 0;
+    margin-right: 4px;
+  }
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-wrapper {
+    width: calc($main-picture-size - $btnWidth * 2 - $btnGap * 2);
+    position: relative;
+    left: calc($btnWidth + $btnGap);
+    height: $itemHeight;
+    padding: 0 $btnWidth;
+    // display: flex;
+
+    .swiper-slide {
+      // height: $itemHeight !important;
+      // width: $itemHeight !important;
+      // float: left;
+      margin-right: $gap-large;
+      img {
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 2px;
+        height: $itemHeight;
+        width: $itemHeight;
+      }
+
+      &.is-active {
+        img {
+          border: 2px solid #f60;
+        }
+      }
+    }
+  }
+}

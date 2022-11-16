@@ -1,0 +1,113 @@
+{
+    "brandList": [
+        {
+            "tmName": "索尼（SONY）"
+        },
+        {
+            "tmName": "TCL"
+        },
+        {
+            "tmName": "长虹（CHANGHONG）"
+        },
+        {
+            "tmName": "飞利浦（PHILIPS）"
+        },
+        {
+            "tmName": "风行电视"
+        },
+        {
+            "imgUrl": "./images/search/phone06.png"
+        },
+        {
+            "imgUrl": "./images/search/phone07.png"
+        },
+        {
+            "imgUrl": "./images/search/phone08.png"
+        },
+        {
+            "imgUrl": "./images/search/phone09.png"
+        },
+        {
+            "imgUrl": "./images/search/phone10.png"
+        },
+        {
+            "imgUrl": "./images/search/phone11.png"
+        },
+        {
+            "imgUrl": "./images/search/phone12.png"
+        },
+        {
+            "imgUrl": "./images/search/phone12.png"
+        },
+        {
+            "imgUrl": "./images/search/phone14.png"
+        },
+        {
+            "imgUrl": "./images/search/phone01.png"
+        },
+        {
+            "imgUrl": "./images/search/phone06.png"
+        },
+        {
+            "imgUrl": "./images/search/phone07.png"
+        },
+        {
+            "imgUrl": "./images/search/phone02.png"
+        }
+    ],
+    "attrsList": [
+        {
+            "attrName": "网络制式",
+            "attrValueList": [
+                "GSM（移动/联通2G）",
+                "电信2G",
+                "电信3G",
+                "电信4G",
+                "联通2G",
+                "联通3G",
+                "联通4G",
+                "移动2G",
+                "移动3G",
+                "移动4G"
+            ]
+        },
+        {
+            "attrName": "显示屏尺寸",
+            "attrValueList": [
+                "4.0-4.4英寸",
+                "4.4-4.9英寸"
+            ]
+        },
+        {
+            "attrName": "摄像头像素",
+            "attrValueList": [
+                "1200万以上",
+                "800-1199万",
+                "1200-1599万",
+                "1600万以上",
+                "无摄像头"
+            ]
+        },
+        {
+            "attrName": "价格",
+            "attrValueList": [
+                "0-500元",
+                "500-1000元",
+                "1000-1500元",
+                "1500-2000元",
+                "2000-3000元",
+                "3000元以上"
+            ]
+        },
+        {
+            "attrName": "更多筛选项",
+            "attrValueList": [
+                "特点",
+                "系统",
+                "手机内存",
+                "单卡双卡",
+                "其他"
+            ]
+        }
+    ]
+}

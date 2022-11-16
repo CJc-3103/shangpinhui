@@ -1,0 +1,103 @@
+@use '@/styles/common/vars' as *;
+@use '../utils/mixins' as *;
+
+@include b(pagination) {
+  width: 100%;
+  height: $pagination-height;
+  display: flex;
+  justify-content: $pagination-align;
+  align-items: center;
+  overflow: hidden;
+
+  $borderWidth: 1px;
+
+  @include e(wrap) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include e(component) {
+    vertical-align: middle;
+    color: $pagination-font-color;
+    background-color: $pagination-background-color;
+    padding: $pagination-inner-padding;
+    text-decoration: none;
+
+    @include m(action) {
+      border: $borderWidth solid $pagination-border-color;
+      cursor: pointer;
+    }
+
+    // page
+    @include m(page) {
+      color: $pagination-page-font-color;
+      background-color: $pagination-page-background-color;
+      border-color: $pagination-page-border-color;
+
+      @include when(center-page) {
+        border-right-width: 0;
+      }
+
+      @include when(show-right-border) {
+        border-right-width: $borderWidth;
+      }
+
+      @include when(active) {
+        color: $pagination-font-color-active;
+        background-color: $pagination-background-color-active;
+        border-color: $pagination-border-color-active;
+      }
+
+      @include when(disabled) {
+        color: $pagination-page-font-color-disabled;
+        background-color: $pagination-page-background-color-disabled;
+        border-color: $pagination-page-border-color-disabled;
+      }
+    }
+
+    // prev & next
+    @include m(page-turn) {
+      color: $pagination-page-turn-font-color;
+      background-color: $pagination-page-turn-background-color;
+      border-color: $pagination-page-turn-border-color;
+      @include when(disabled) {
+        color: $pagination-page-turn-font-color-disabled;
+        background-color: $pagination-page-turn-background-color-disabled;
+        border-color: $pagination-page-turn-border-color-disabled;
+      }
+    }
+  }
+
+  @include e(inner) {
+    font-size: $pagination-font-size;
+    line-height: $pagination-inner-height;
+  }
+
+  // 中间区域所有子组件的容器
+  @include e(action-group) {
+    display: flex;
+  }
+
+  // 所有页码以及省略位、快速翻页键的容器
+  @include e(page-group) {
+    display: flex;
+  }
+  @include e(dotted) {
+    border-width: 0;
+  }
+
+  // 总计信息子组件
+  @include e(total-info) {
+    background-color: transparent;
+  }
+
+  @include e(total-data) {
+    margin-right: $gap-middle;
+    border-right: none;
+  }
+
+  @include e(total-pages) {
+    margin-left: $gap-middle;
+    border-left: none;
+  }
+}

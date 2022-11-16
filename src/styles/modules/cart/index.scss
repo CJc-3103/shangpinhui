@@ -1,0 +1,181 @@
+@use '../../common/vars' as *;
+@use '../../common/utils' as *;
+@use '../bem-mixins' as *;
+@use '../vars' as *;
+
+@include b(cart-table) {
+  width: 100%;
+}
+
+@include b(cart-row) {
+  padding: $gap-small;
+}
+
+@include b(cart-col) {
+  font-weight: normal;
+  width: 12.5%;
+
+  @include m(center) {
+    text-align: center;
+  }
+
+  @include m(check) {
+    width: 10%;
+    text-align: left;
+  }
+
+  @include m(info) {
+    width: 40%;
+  }
+
+  @include m(total-price) {
+    font-size: $font-size-medium;
+  }
+}
+
+@include b(action-item) {
+  &:not(.is-input):hover {
+    color: lightgreen;
+  }
+
+  @include when(number) {
+    border: 1px solid #ddd;
+  }
+
+  @include when(btn) {
+    display: inline-flex;
+    justify-content: center;
+    color: #666;
+    width: 6px;
+    padding: 8px;
+    line-height: 15px;
+  }
+  @include when(btn-minus) {
+    border-right: 0;
+  }
+  @include when(btn-plus) {
+    border-left: 0;
+  }
+
+  @include when(input) {
+    width: 40px;
+    height: 33px;
+    font-size: $font-size-base;
+    text-align: center;
+  }
+}
+
+@include b(cart) {
+  @include utils-unstyled-table;
+
+  @include e(caption) {
+    margin: 9px 0;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: left;
+  }
+
+  @include e(title) {
+    margin: 0;
+  }
+
+  @include e(header) {
+    .sph-cart-row {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+    }
+  }
+
+  @include e(content) {
+    margin: $gap-middle 0;
+    border: 1px solid #ddd;
+
+    .sph-cart-col--check {
+      width: 5%;
+    }
+
+    .sph-cart-col--info {
+      width: 45%;
+    }
+  }
+
+  @include e(foot) {
+    border: 1px solid #ddd;
+
+    .sph-cart-row {
+      padding: 0;
+      .sph-cart-col {
+        width: 100%;
+      }
+    }
+  }
+
+  @include e(total-info-item) {
+    padding: 0 $gap-small;
+  }
+
+  @include e(submit) {
+    display: inline-block;
+    width: 96px;
+    height: 52px;
+    line-height: 52px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Microsoft YaHei';
+    background: #e1251b;
+    overflow: hidden;
+  }
+}
+
+@include b(product-info) {
+  width: 100%;
+  display: flex;
+
+  @include e(main) {
+    width: 55.5%;
+    display: flex;
+  }
+
+  @include e(img) {
+    width: 82px;
+  }
+  @include e(title) {
+    width: 150px;
+    margin: 0 $gap-small;
+  }
+}
+
+@include b(product-attr-list) {
+  width: 44.5%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@include b(action-group) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 50%;
+  // 对齐居中显示的表头文案“操作”，左移一个字符的宽度
+  transform: translateX(-$sph-font-size-base);
+}
+
+@include b(half-container) {
+  width: 50%;
+  display: inline-flex;
+
+  @include e(wrap) {
+    padding: $gap-small;
+    vertical-align: middle;
+
+    & > .sph-action-item {
+      padding: 0 $gap-small;
+    }
+  }
+
+  @include when(right) {
+    justify-content: flex-end;
+  }
+}
